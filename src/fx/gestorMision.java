@@ -3,6 +3,7 @@ package fx;
 import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /*
 * Esta clase almacena los metodos que luego serán usados por los botones de la interfaz gráfica
@@ -16,19 +17,24 @@ public class gestorMision {
 
     //Constructor sin parametros que inicializa los arrays con ejemplos
     public gestorMision() {
-        /*
         Tripulante t1 = new Tripulante("Santi", "Limpia pasillos", 2);
         naves.add(crearNave.crearNave("SantiNave", "Floffy", t1));
+        naves.add(crearNave.crearNave("Ahti","Trap",t1));
         tripulantes.add(crearTripulacion.crearTripulacion("Santi", 5, "Nose"));
-        */
-
+        crearMision("Principal","17/11/2003","Cesarea",null,null);
     }
 
     //Metodos
     public void crearMision(String nombre, String fecha, String obj, Nave nave, ArrayList<Tripulante> tripulantes) {
         try {
             this.nombre = nombre;
-            BufferedWriter w = new BufferedWriter(new FileWriter(nombre+".txt"));
+            File file = new File(".missions/"+nombre+".txt");
+            File carpeta = file.getParentFile();
+            if (!carpeta.exists()) {
+                carpeta.mkdirs();
+                carpeta.setWritable(true);
+            }
+            BufferedWriter w = new BufferedWriter(new FileWriter(".missions/"+nombre+".txt"));
             w.write("Nombre de misión: "+nombre+"\nFecha de lanzamiento: "+fecha+"\n" +
                     "Objetivos: "+obj+"\n");
             w.close();
@@ -41,13 +47,14 @@ public class gestorMision {
         String[] misionesGuardadasEnTxt = new String[0];
         if (nombre != null) {
             try {
-                BufferedReader r = new BufferedReader(new FileReader(nombre + ".txt"));
+                BufferedReader r = new BufferedReader(new FileReader(".missions/"+nombre + ".txt"));
                 String linea;
                 while ((linea = r.readLine()) != null) {
-                    if (linea.startsWith("Nombre de la mision: ")) {
-                        misionesGuardadasEnTxt = new String[]{linea.substring("Nombre de la mision: ".length())};
+                    if (linea.startsWith("Nombre de misión: ")) {
+                        misionesGuardadasEnTxt = new String[]{linea.substring("Nombre de misión: ".length())};
                     }
                 }
+                r.close();
             } catch (Exception e) {
                 System.out.println("ERROR: " + e.getMessage());
             }

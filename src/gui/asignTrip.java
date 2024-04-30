@@ -11,7 +11,7 @@ public class asignTrip extends JDialog {
     private JComboBox<String> cmbTripulantes;
     public asignTrip(gestorMision gMision) {
         setTitle("Asignar tripulación");
-        setSize(400, 400);
+        setSize(500, 300);
         setLayout(new GridLayout(3, 2));
         setLocationRelativeTo(null);
         add(new JLabel("Misión:"));

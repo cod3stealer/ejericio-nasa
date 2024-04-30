@@ -9,7 +9,7 @@ public class informeMision extends JFrame {
     public informeMision(String nMision) {
         setTitle("Informe: " + nMision);
         setSize(450, 400);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
 
         JTextArea txtArea = new JTextArea();
@@ -17,7 +17,7 @@ public class informeMision extends JFrame {
         add(scroll);
 
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(nMision + ".txt"));
+            BufferedReader reader = new BufferedReader(new FileReader(".missions/"+nMision + ".txt"));
             String line;
             while ((line = reader.readLine()) != null) {
                 txtArea.append(line+"\n");

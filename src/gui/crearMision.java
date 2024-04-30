@@ -2,6 +2,7 @@ package gui;
 
 import fx.*;
 import javax.swing.*;
+import javax.swing.text.Document;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +14,6 @@ public class crearMision extends JFrame {
     public crearMision(gestorMision gestorMisiones) {
         setTitle("Crear Misión");
         setSize(500, 300);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(4, 2));
         setLocationRelativeTo(null);
 

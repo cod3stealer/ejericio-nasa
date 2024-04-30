@@ -14,7 +14,6 @@ public class asigNave extends JDialog {
     public asigNave(gestorMision gMision) {
         setTitle("Asignar Nave");
         setSize(400, 400);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new GridLayout(3, 2));
         setLocationRelativeTo(null);
 

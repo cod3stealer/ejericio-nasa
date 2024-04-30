@@ -24,7 +24,7 @@ public class missions extends JFrame {
         setTitle("Menu principal");
 
         // Se define el tamaño de la ventana a 500 píxeles de ancho y 500 píxeles de alto.
-        setSize(500,500);
+        setSize(500,400);
 
         // Se indica que la aplicación se cierre al pulsar la "X" de la ventana.
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -69,7 +69,7 @@ public class missions extends JFrame {
                     // Se crea una nueva instancia de la clase `crearMision` y se le pasa la referencia al gestor de misiones (`gMision`)
                     new crearMision(gMision);
                     break;
-                case "Asignar nave":
+                case "Asignar nave(s)":
                     // Se crea una nueva instancia de la clase `asigNave` y se le pasa la referencia al gestor de misiones (`gMision`)
                     new asigNave(gMision);
                     break;

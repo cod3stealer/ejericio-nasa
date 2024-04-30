@@ -13,7 +13,6 @@ public class misionUtils extends JFrame {
         try {
             simuladorMision simuladorMisiones = new simuladorMision();
             JFrame frame = new JFrame("Trayectoria de la misión");
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.add(simuladorMisiones);
             frame.setSize(400, 400);
             frame.setLocationRelativeTo(null);
